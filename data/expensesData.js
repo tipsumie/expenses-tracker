@@ -29,4 +29,16 @@ export const expensesData = [
     amount: 75,
     date: new Date('2022-09-18'),
   },
+  {
+    id: 6,
+    description: 'phone',
+    amount: 22250,
+    date: new Date('2022-12-22'),
+  },
+  {
+    id: 7,
+    description: 'bag',
+    amount: 150,
+    date: new Date('2022-12-25'),
+  },
 ];
