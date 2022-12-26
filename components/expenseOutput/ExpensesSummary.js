@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
-import { COLORS } from '../constants';
+import { COLORS } from '../../constants';
 
 const ExpensesSummary = ({ expenses, periodName }) => {
   const initialValue = 0;
