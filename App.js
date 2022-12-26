@@ -6,6 +6,9 @@ import { COLORS } from './constants';
 import { Ionicons } from '@expo/vector-icons';
 import IconButton from './components/ui/IconButton';
 
+import { store } from './store/store';
+import { Provider } from 'react-redux';
+
 import ManageExpense from './screens/ManageExpense';
 import AllExpense from './screens/AllExpense';
 import RecentExpense from './screens/RecentExpense';
@@ -59,7 +62,7 @@ const OverviewExpense = () => {
   );
 };
 
-export default function App() {
+function App() {
   return (
     <>
       <StatusBar style='auto' />
@@ -85,3 +88,11 @@ export default function App() {
     </>
   );
 }
+
+export default () => {
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};
