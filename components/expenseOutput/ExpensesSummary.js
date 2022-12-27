@@ -4,7 +4,7 @@ import { COLORS } from '../../constants';
 
 const ExpensesSummary = ({ expenses, periodName }) => {
   const initialValue = 0;
-  const sumExpenses = expenses.reduce(
+  const sumExpenses = expenses?.reduce(
     (accumulator, expense) => accumulator + expense.amount,
     initialValue
   );

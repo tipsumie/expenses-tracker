@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 const AllExpense = () => {
   const expenses = useSelector((state) => state.expenses.expenses);
+  console.log('INFO', expenses);
   return <ExpensesOutput expenses={expenses} expensePeriod='total' />;
 };
 

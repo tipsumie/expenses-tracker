@@ -8,19 +8,23 @@ export const expensesSlice = createSlice({
   },
   reducers: {
     addExpense: (state, action) => {
-      const id = new Date().toString() + Math.random().toString();
-      state.push({ ...action.payload, id: id });
+      const id = Math.random().toString();
+      state.expenses.push({ ...action.payload, id: id });
     },
     deleteExpense: (state, action) => {
-      return state.filter((expense) => expense.id !== action.payload);
+      let newExpenses = state.expenses.filter(
+        (expense) => expense.id !== action.payload
+      );
+      return { expenses: newExpenses };
     },
     updateExpense: (state, action) => {
-      const updatableExpenseIndex = state.findIndex(
+      const updatableExpenseIndex = state.expenses.findIndex(
         (expense) => expense.id === action.payload.id
       );
-      const updatableExpense = state[updatableExpenseIndex];
-      const updatedItem = { ...updatableExpense, ...action.payload.data };
-      state[updatableExpenseIndex] = updatedItem;
+      state.expenses[updatableExpenseIndex] = {
+        ...action.payload.data,
+        id: action.payload.id,
+      };
     },
   },
 });

@@ -3,10 +3,18 @@ import React, { useLayoutEffect } from 'react';
 import IconButton from '../components/ui/IconButton';
 import { COLORS } from '../constants';
 import Button from '../components/ui/Button';
+import { useDispatch } from 'react-redux';
+import {
+  deleteExpense,
+  updateExpense,
+  addExpense,
+} from '../store/expensesSlice';
 
 const ManageExpense = ({ route, navigation }) => {
   const editedExpenseId = route.params?.expenseId;
   const isEditing = !!editedExpenseId;
+
+  const dispatch = useDispatch();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -14,12 +22,34 @@ const ManageExpense = ({ route, navigation }) => {
     });
   }, [isEditing, navigation]);
   const deleteExpenseHandler = () => {
+    console.log('clik', editedExpenseId);
+    dispatch(deleteExpense(editedExpenseId));
     navigation.goBack();
   };
   const cancelHandler = () => {
     navigation.goBack();
   };
   const confirmHandler = () => {
+    if (isEditing) {
+      dispatch(
+        updateExpense({
+          id: editedExpenseId,
+          data: {
+            description: 'Test Update',
+            amount: 34.5,
+            date: new Date('2022-11-11'),
+          },
+        })
+      );
+    } else {
+      dispatch(
+        addExpense({
+          description: 'Test Add',
+          amount: 34.5,
+          date: new Date('2022-11-11'),
+        })
+      );
+    }
     navigation.goBack();
   };
 
