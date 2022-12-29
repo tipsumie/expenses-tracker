@@ -1,5 +1,5 @@
 import React from 'react';
-import ExpensesOutput from '../components/expenseOutput/ExpensesOutput';
+import ExpensesOutput from '../components/ExpenseOutput/ExpensesOutput';
 import { useSelector } from 'react-redux';
 import { getDateMinusDays } from '../utils/date';
 

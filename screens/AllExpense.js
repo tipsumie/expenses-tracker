@@ -1,10 +1,10 @@
 import React from 'react';
-import ExpensesOutput from '../components/expenseOutput/ExpensesOutput';
+import ExpensesOutput from '../components/ExpenseOutput/ExpensesOutput';
 import { useSelector } from 'react-redux';
 
 const AllExpense = () => {
   const expenses = useSelector((state) => state.expenses.expenses);
-  console.log('INFO', expenses);
+ 
   return (
     <ExpensesOutput
       expenses={expenses}

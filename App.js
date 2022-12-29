@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { COLORS } from './constants';
 import { Ionicons } from '@expo/vector-icons';
-import IconButton from './components/ui/IconButton';
+import IconButton from './components/UI/IconButton';
 
 import { store } from './store/store';
 import { Provider } from 'react-redux';

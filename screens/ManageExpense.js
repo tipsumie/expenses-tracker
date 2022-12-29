@@ -1,14 +1,15 @@
 import { View, StyleSheet } from 'react-native';
 import React, { useLayoutEffect } from 'react';
-import IconButton from '../components/ui/IconButton';
+import IconButton from '../components/UI/IconButton';
 import { COLORS } from '../constants';
-import Button from '../components/ui/Button';
+import Button from '../components/UI/Button';
 import { useDispatch } from 'react-redux';
 import {
   deleteExpense,
   updateExpense,
   addExpense,
 } from '../store/expensesSlice';
+import ManageForm from '../components/ManageExpense/ManageForm';
 
 const ManageExpense = ({ route, navigation }) => {
   const editedExpenseId = route.params?.expenseId;
@@ -22,7 +23,6 @@ const ManageExpense = ({ route, navigation }) => {
     });
   }, [isEditing, navigation]);
   const deleteExpenseHandler = () => {
-    console.log('clik', editedExpenseId);
     dispatch(deleteExpense(editedExpenseId));
     navigation.goBack();
   };
@@ -55,6 +55,7 @@ const ManageExpense = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
+      <ManageForm />
       <View style={styles.buttons}>
         <Button style={styles.button} mode='flat' onPress={cancelHandler}>
           Cancel
