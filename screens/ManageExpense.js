@@ -9,7 +9,7 @@ import {
   updateExpense,
   addExpense,
 } from '../store/expensesSlice';
-import ManageForm from '../components/ManageExpense/ManageForm';
+import ExpenseInputForm from '../components/ManageExpense/ExpenseInputForm';
 
 const ManageExpense = ({ route, navigation }) => {
   const editedExpenseId = route.params?.expenseId;
@@ -55,7 +55,7 @@ const ManageExpense = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ManageForm />
+      <ExpenseInputForm />
       <View style={styles.buttons}>
         <Button style={styles.button} mode='flat' onPress={cancelHandler}>
           Cancel
