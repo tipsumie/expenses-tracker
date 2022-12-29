@@ -2,7 +2,6 @@ import { View, StyleSheet } from 'react-native';
 import React, { useLayoutEffect } from 'react';
 import IconButton from '../components/UI/IconButton';
 import { COLORS } from '../constants';
-import Button from '../components/UI/Button';
 import { useDispatch } from 'react-redux';
 import {
   deleteExpense,
@@ -55,15 +54,11 @@ const ManageExpense = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ExpenseInputForm />
-      <View style={styles.buttons}>
-        <Button style={styles.button} mode='flat' onPress={cancelHandler}>
-          Cancel
-        </Button>
-        <Button style={styles.button} onPress={confirmHandler}>
-          {isEditing ? 'Update' : 'Add'}
-        </Button>
-      </View>
+      <ExpenseInputForm
+        onLabelButton={isEditing ? 'Update' : 'Add'}
+        onCancel={cancelHandler}
+        onSubmit={confirmHandler}
+      />
       {isEditing && (
         <View style={styles.deleteContainer}>
           <IconButton
@@ -92,14 +87,5 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderTopColor: COLORS.primary200,
     alignItems: 'center',
-  },
-  buttons: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  button: {
-    marginHorizontal: 2,
-    minWidth: 120,
   },
 });
